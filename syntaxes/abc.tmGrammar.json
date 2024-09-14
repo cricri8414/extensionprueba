@@ -17,8 +17,12 @@
 
     "repository": {
       "expression": {
-        "patterns": [{ "include": "#letter" }, 
-        { "include": "#paren-expression" }]
+        "patterns": [
+          { "include": "#letter" }, 
+          { "include": "#paren-expression" },
+          {"include": "#comments"},
+          {"include": "#block-comments"},
+          {"include": "#constant"}]
       },
 
       "letter": {
@@ -44,10 +48,36 @@
         {
           "comment": "comentario de una linea",
           "name": "comment.line.triple-slash",
-          "match": "(///).*$"
+          "match": "///.*"
         }
       ]
-    }
+    },
+
+    "constant": {
+      "patterns": [
+        {
+          "comment": "ALL CAPS constants",
+          "name": "constant.other.caps",
+          "match": "\\b[A-Z]{2}[A-Z0-9_]*\\b"
+         }
+      ]
+    },
+
+    "block-comments": {
+      "patterns": [
+          {
+              "comment": "empty block comments",
+              "name": "comment.block",
+              "begin": "/\\*\\*",
+              "end": "\\*/",
+              "patterns": [
+                  {
+                      "include": "#block-comments"
+                  }
+              ]
+          }
+        ]
+      }
 
         
 
