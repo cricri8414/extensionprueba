@@ -18,11 +18,12 @@
     "repository": {
       "expression": {
         "patterns": [
-          { "include": "#letter" }, 
-          { "include": "#paren-expression" },
+          {"include": "#letter" }, 
+          {"include": "#paren-expression" },
           {"include": "#comments"},
           {"include": "#block-comments"},
-          {"include": "#constant"}]
+          {"include": "#constant"},
+          {"include": "#keyword"}]
       },
 
       "letter": {
@@ -77,7 +78,24 @@
               ]
           }
         ]
-      }
+      },
+
+      "keyword": {
+      "patterns": [
+        {
+          "name": "keyword.control",
+          "match": "\\b(if|else|while|for|return)\\b"
+        },
+        {
+          "name": "keyword.operator",
+          "match": "\\b(nd|or|not|in|is)\\b"
+        },
+        {
+          "name": "keyword.other",
+          "match": "\\b(egin|end)\\b"
+        }
+      ]
+    }
 
         
 
