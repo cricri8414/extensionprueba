@@ -1,0 +1,56 @@
+{
+"scopeName": "source.abc",
+    "patterns": [
+      { "include": "#expression" },
+      { "include": "#comments" },
+      { "include": "#block-comments" },
+      { "include": "#constant" },
+      { "include": "#entity" },
+      { "include": "#invalid" },
+      { "include": "#keyword" },
+      { "include": "#markup" },
+      { "include": "#meta" },
+      { "include": "#storage" },
+      { "include": "#string" },
+      { "include": "#support" },
+      { "include": "#variable" }],
+
+    "repository": {
+      "expression": {
+        "patterns": [{ "include": "#letter" }, 
+        { "include": "#paren-expression" }]
+      },
+
+      "letter": {
+        "match": "a|b|c",
+        "name": "keyword.letter"
+      },
+
+      "paren-expression": {
+        "begin": "\\(",
+        "end": "\\)",
+        "beginCaptures": {
+          "0": { "name": "punctuation.paren.open" }
+        },
+        "endCaptures": {
+          "0": { "name": "punctuation.paren.close" }
+        },
+        "name": "expression.group",
+        "patterns": [{ "include": "#expression" }]
+      },
+
+      "comments": {
+      "patterns": [
+        {
+          "comment": "comentario de una linea",
+          "name": "comment.line.triple-slash",
+          "match": "(///).*$"
+        }
+      ]
+    }
+
+        
+
+
+  }
+}

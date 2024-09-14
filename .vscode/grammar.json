@@ -1,0 +1,17 @@
+{
+    "contributes": {
+      "languages": [
+        {
+          "id": "abc",
+          "extensions": [".abc"]
+        }
+      ],
+      "grammars": [
+        {
+          "language": "abc",
+          "scopeName": "source.abc",
+          "path": "./syntaxes/abc.tmGrammar.json"
+        }
+      ]
+    }
+  }
