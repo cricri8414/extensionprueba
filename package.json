@@ -18,7 +18,8 @@
     "languages": [
       {
         "id": "abc",
-        "extensions": [".abc"]
+        "extensions": [".abc"],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
