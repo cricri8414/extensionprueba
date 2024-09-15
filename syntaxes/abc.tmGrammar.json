@@ -23,7 +23,8 @@
           {"include": "#comments"},
           {"include": "#block-comments"},
           {"include": "#constant"},
-          {"include": "#keyword"}]
+          {"include": "#keyword"},
+          {"include": "#string"}]
       },
 
       "letter": {
@@ -93,6 +94,31 @@
         {
           "name": "keyword.other",
           "match": "\\b(egin|end)\\b"
+        }
+      ]
+    },
+
+    "string": {
+      "patterns": [
+        {
+          "name": "string.single",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+                  {
+                      "include": "#string"
+                  }
+              ]
+        },
+        {
+          "name": "string.double",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+                  {
+                      "include": "#string"
+                  }
+              ]
         }
       ]
     }
